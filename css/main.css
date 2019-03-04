@@ -1,0 +1,15 @@
+html, body {
+  font-family: Roboto
+}
+
+
+meter {
+  height: 100px;
+  width: 200px;
+}
+
+.value {
+  position: relative;
+  top: -58px;
+  left: 85px;
+}
