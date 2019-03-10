@@ -60,3 +60,15 @@ document.querySelector('button').addEventListener('click', function() {
     console.log('Playback resumed successfully');
   });
 });
+
+// Registering the service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('js/sw.js')
+    .then(reg => {
+      console.log('Registered!', reg);
+    }).catch(err => {
+      console.log('Registration failed: ', err);
+    });
+  });
+}
