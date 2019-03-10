@@ -53,3 +53,10 @@ function handleError(error) {
 }
 
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+
+// One-liner to resume playback when user interacted with the page.
+document.querySelector('button').addEventListener('click', function() {
+  window.audioContext.resume().then(() => {
+    console.log('Playback resumed successfully');
+  });
+});
