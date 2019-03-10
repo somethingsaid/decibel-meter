@@ -17,10 +17,16 @@ self.addEventListener('install', event => {
   );
 });
 
-self.addEventListener('activate', event => {
-  console.log('Activate event!');
-});
-
 self.addEventListener('fetch', event => {
   console.log('Fetch intercepted for: ', event.request.url);
+  event.respondWith(
+    caches.match(event.request)
+    .then(cachedResponse => {
+      return cachedResponse || fetch(event.request);
+    })
+  );
+});
+
+self.addEventListener('activate', event => {
+  console.log('Activate event!');
 });
