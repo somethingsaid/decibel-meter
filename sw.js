@@ -1,10 +1,10 @@
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
-  '../',
-  '../index.html',
-  '../css/main.css',
-  'main.js',
-  'soundmeter.js'
+  '/',
+  '/index.html',
+  '/css/main.css',
+  '/js/main.js',
+  '/js/soundmeter.js'
 ];
 
 self.addEventListener('install', event => {
@@ -14,6 +14,7 @@ self.addEventListener('install', event => {
     .then(cache => {
       return cache.addAll(resourcesToPrecache);
     })
+    .then(() => self.skipWaiting())
   );
 });
 
